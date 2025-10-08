@@ -1,22 +1,17 @@
 CREATE DATABASE agenda;
 USE agenda;
 
-CREATE TABLE Cliente 
-( 
- id_cliente INT PRIMARY KEY AUTO_INCREMENT,  
- nome VARCHAR(n) NOT NULL,  
- telefone VARCHAR(n) NOT NULL,  
- data_agendada VARCHAR(n) NOT NULL,  
- idAdmin INT,  
- UNIQUE (telefone)
-); 
-
-CREATE TABLE Admin 
-( 
- id_admin INT PRIMARY KEY NOT NULL AUTO_INCREMENT,  
- usuario VARCHAR(n) NOT NULL,  
- senha INT NOT NULL,  
- UNIQUE (id_admin: PK,usuario)
-); 
-
-ALTER TABLE Cliente ADD FOREIGN KEY(idAdmin) REFERENCES Admin (idAdmin)
+CREATE TABLE `admin` (
+ `id_admin` int(11) NOT NULL AUTO_INCREMENT,
+ `usuario` varchar(15) NOT NULL,
+ `senha` varchar(20) NOT NULL,
+ PRIMARY KEY (`id_admin`),
+ UNIQUE KEY `senha` (`senha`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+cliente	CREATE TABLE `cliente` (
+ `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
+ `nome` varchar(50) NOT NULL,
+ `telefone` varchar(11) NOT NULL,
+ `data_agendada` varchar(10) NOT NULL,
+ PRIMARY KEY (`id_cliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
